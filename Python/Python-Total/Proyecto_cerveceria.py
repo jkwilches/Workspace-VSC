@@ -1,0 +1,1 @@
+print("El nombre de tu cerveza\nes '" + input("¿Cuál es tu color favorito?: ") + " " + input("¿Qué tipo de sabor es tu cerveza?: ") + "'\nFelicitaciones")
