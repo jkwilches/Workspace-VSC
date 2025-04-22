@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuestionario</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
+    }
+    .quiz-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+    .progress {
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #4caf50;
+      transition: width 0.3s ease;
+    }
+    .question {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    .options button {
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .options button:hover {
+      background-color: #e0f7fa;
+      transform: scale(1.02);
+    }
+    .options button span.icon {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    .options button span.text {
+      font-size: 1rem;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .submit-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="question" id="questionText">Cargando pregunta...</div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="nav-buttons">
+      <button id="backButton" onclick="goBack()" disabled>Atrás</button>
+    </div>
+    <button id="submitButton" class="submit-button" style="display:none;" onclick="goToSummary()">Enviar</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "¿Cuál es tu color favorito?",
+        options: [
+          { text: "Rojo", icon: "🔴" },
+          { text: "Azul", icon: "🔵" },
+          { text: "Verde", icon: "🟢" },
+          { text: "Amarillo", icon: "🟡" }
+        ]
+      },
+      {
+        question: "¿Qué tipo de música prefieres?",
+        options: [
+          { text: "Rock", icon: "🎸" },
+          { text: "Pop", icon: "🎤" },
+          { text: "Clásica", icon: "🎻" },
+          { text: "Reggaetón", icon: "🎧" }
+        ]
+      },
+      {
+        question: "¿Cuál es tu bebida favorita?",
+        options: [
+          { text: "Café", icon: "☕" },
+          { text: "Té", icon: "🍵" },
+          { text: "Refresco", icon: "🥤" },
+          { text: "Agua", icon: "💧" }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    const userAnswers = [];
+
+    const questionText = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const progressBar = document.getElementById("progressBar");
+    const backButton = document.getElementById("backButton");
+    const submitButton = document.getElementById("submitButton");
+
+    function showQuestion(index) {
+      const q = questions[index];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.innerHTML = `<span class="icon">${option.icon}</span><span class="text">${option.text}</span>`;
+        btn.onclick = () => selectAnswer(option.text);
+        optionsContainer.appendChild(btn);
+      });
+
+      updateProgress();
+      backButton.disabled = currentQuestion === 0;
+      submitButton.style.display = "none";
+    }
+
+    function selectAnswer(answer) {
+      userAnswers[currentQuestion] = answer;
+      currentQuestion++;
+
+      if (currentQuestion < questions.length) {
+        showQuestion(currentQuestion);
+      } else {
+        showSubmit();
+      }
+    }
+
+    function goBack() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+      }
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion) / questions.length) * 100;
+      progressBar.style.width = progress + "%";
+    }
+
+    function showSubmit() {
+      questionText.textContent = "¡Has completado el cuestionario!";
+      optionsContainer.innerHTML = "<p>Haz clic en 'Enviar' para ver tus respuestas.</p>";
+      backButton.style.display = "none";
+      submitButton.style.display = "inline-block";
+      progressBar.style.width = "100%";
+    }
+
+    function goToSummary() {
+      const query = encodeURIComponent(JSON.stringify(userAnswers));
+      window.location.href = `resumen.html?respuestas=${query}`;
+    }
+
+    showQuestion(currentQuestion);
+  </script>
+</body>
+</html>

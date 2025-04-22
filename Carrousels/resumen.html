@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumen de Respuestas</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .respuesta {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+      }
+      .respuesta strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #4caf50;
+      }
+      .volver {
+        display: block;
+        text-align: center;
+        margin-top: 2rem;
+        text-decoration: none;
+        color: #4caf50;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resumen de tus respuestas</h1>
+    <div id="resumen"></div>
+    <a class="volver" href="cuestionario full pantalla.html">← Volver al inicio</a>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const encodedRespuestas = params.get("respuestas");
+
+      const resumen = document.getElementById("resumen");
+
+      if (encodedRespuestas) {
+        try {
+          const respuestas = JSON.parse(decodeURIComponent(encodedRespuestas));
+
+          if (Array.isArray(respuestas)) {
+            respuestas.forEach((respuesta, i) => {
+              const div = document.createElement("div");
+              div.className = "respuesta";
+              div.innerHTML = `<strong>Pregunta ${i + 1}:</strong>${respuesta}`;
+              resumen.appendChild(div);
+            });
+          } else {
+            resumen.innerHTML =
+              "<p>El formato de las respuestas no es válido.</p>";
+          }
+        } catch (error) {
+          resumen.innerHTML =
+            "<p>Hubo un error al procesar tus respuestas.</p>";
+          console.error("Error al parsear las respuestas:", error);
+        }
+      } else {
+        resumen.innerHTML = "<p>No se encontraron respuestas para mostrar.</p>";
+      }
+    </script>
+  </body>
+</html>

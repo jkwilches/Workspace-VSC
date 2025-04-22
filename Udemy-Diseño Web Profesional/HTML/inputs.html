@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inpus</title>
+</head>
+<body>
+  <form action="" method="post">
+    <!-- email -->
+    <input type="email" name="Correo" id="correo" placeholder="Correo electrónico" required>
+    <br>
+    <!-- password -->
+    <input type="password" name="Contraseña" id="contraseña" placeholder="Contraseña" required>
+
+    <br>  
+    <!-- number -->
+     <input type="number" name="Edad" id="edad" placeholder="Edad" min="18" max="60" required>
+    <br>
+    <!-- File -->
+     <input type="file" name="file" id="file" accept=".jpg, .png, .pdf" multiple required>
+    <br>
+    <!-- Range -->
+     <input type="range" name="" id="" min="1" max="100" value="50" required>
+     <br>
+    <!-- Color -->
+     <input type="color" name="" id="" value="#ff0000" required>
+     <br>
+    <!-- Date -->
+     <input type="date" name="" id="" value="2025-04-01" required>
+     <br>
+     <!--date time local-->
+      <input type="datetime-local" name="" id="" value="2025-04-01T12:00" required>
+      <br>
+     <!-- Time -->
+     <input type="time" name="" id="" value="12:00" required>
+     <br>
+     <!--hidden-->
+      <input type="hidden" name="valor-oculto" id="" value="valor oculto" required>
+      <br>
+      <!--image-->
+      <input type="image" src="images/02.avif" alt="Enviar" width="150">
+      <br>
+      <!--reset-->
+      <input type="reset" value="Restablecer">
+      <br>
+    <!-- Botón -->
+    <input type="submit" value="Enviar datos">
+    <button type="submit">Enviar</button>
+
+  </form>
+  
+</body>
+</html>
