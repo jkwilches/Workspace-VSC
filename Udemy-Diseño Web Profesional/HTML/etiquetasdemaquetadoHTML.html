@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etiquetas de Maquetado</title>
+  </head>
+
+  <body>
+    <!-- Elementos semanticos:
+		- section - Define una seccion en un documento que puede contener un grupo de contenido 
+		- article - Define el contenido de un sitio, por ejemplo un articulo
+		- header - Define cual sera el encabezado de un sitio (navegación, logo, enlaces, etc)
+		- main - Define la sección principal de un sitio. 
+		- aside - Nos permite definir un area con contenido independiente al principal, como el sidebar
+		- footer - Define cual sera el pie de página de un sitio.
+		- figcaption - Representa la leyenda o pie de imagen.
+		- figure - Representa el contenido dentro de la etiqueta <figcaption>.
+		- mark - Define texto que debería ser resltado por el navegador web.
+		- nav - Define un conjunto de enlaces de navegación.
+		- summary - Define el encabezado para le etiqueta <details>.
+		- details - Define los detalles adicionales de la etiqueta <summary>.
+		- time - Representa un tiempo en formato de computadora.
+		- code - Define código
+		- kbd - Representa teclas a presionar.
+	 -->
+    <header class="header">
+      <nav class="nav">
+        <a href="http://" target="_blank" rel="noopener noreferrer">Menú 1</a>
+        <a href="http://" target="_blank" rel="noopener noreferrer">Menú 2</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <figure>
+          <figcaption>
+            <img src="images/01.avif" height="150" alt="" srcset="" />
+            montaña nevada
+          </figcaption>
+        </figure>
+
+        <h1 class="titulo">Este es el título del post</h1>
+        <time class="fecha" datetime="1983-09-07">07 Septiembre 1983</time>
+        <p>
+          Lorem ipsum dolor sit amet
+          <mark>consectetur adipisicing elit.</mark> Libero, blanditiis.
+        </p>
+      </article>
+    </main>
+
+    <aside>
+      <h2>Artículos relacionados</h2>
+      <ul>
+        <li>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >Artículo 1</a
+          >
+        </li>
+        <li>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >Artículo 2</a
+          >
+        </li>
+      </ul>
+      <p>Este es un párrafo dentro del aside.</p>
+    </aside>
+
+    <footer>
+      <p>Derechos reservados &copy; 2025</p>
+      <a href="http://" target="_blank" rel="noopener noreferrer"
+        >Política de privacidad</a
+      >
+      <a href="http://" target="_blank" rel="noopener noreferrer"
+        >Términos de servicio</a
+      >
+    </footer>
+  </body>
+</html>
