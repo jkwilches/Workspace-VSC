@@ -1,0 +1,44 @@
+/*Selector universal*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Selector simple*/
+h1 {
+  color: red;
+}
+h2 {
+  color: blue;
+}
+
+/*Selector de grupos*/
+h1,
+h2 {
+  font-size: clamp(24px, 4vw + 1rem, 52px);
+}
+
+/*Selector de descendientes*/
+main p {
+  font-size: clamp(16px, 2vw, 32px);
+  color: #42d156;
+  
+}
+main p a {
+  color: #d15642;
+}
+
+/*Selector de clases*/
+.enlace {
+  color: #d15642;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+/*Selector de id*/
+#especial {
+  background-color: #d15642;
+  color: white;
+  padding: 0.5rem 1rem;
+}

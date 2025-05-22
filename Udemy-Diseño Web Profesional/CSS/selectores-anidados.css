@@ -1,0 +1,28 @@
+.contenedor {
+  /* background-color: lightgreen; */
+
+  .articulo {
+    background-color: lightgray;
+
+    &.destacado {
+      background: lightblue;
+
+      h2 {
+        color: blue;
+      }
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    a {
+      color: red;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/*Selectores combinados*/
+/* Combinador descendente */
+.menu {
+  background: rgb(199, 199, 199);
+}
+.menu a{
+  color: red;
+}
+
+/*selector de hijos*/
+.menu > a {
+  color: blue;
+}
+
+/*selector de hermanos*/
+h4 + p {
+  color: rgb(92, 76, 236);
+}
+
+/*selector de hermanos general*/
+h3 ~ div {
+  background-color: rgb(177, 207, 253);
+}

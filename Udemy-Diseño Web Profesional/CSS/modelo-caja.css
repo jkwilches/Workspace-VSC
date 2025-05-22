@@ -1,0 +1,19 @@
+.caja {
+  background: #2ead69;
+  width: 300px;
+  padding: 30px;
+  margin: 20px;
+  border: 8px solid #c92009;
+  /* height: 300px;; */
+}
+
+img {
+  width: 38%;
+  margin-left: 25px;
+  border: 12px solid #785612;
+  border-radius: 12px;  
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
