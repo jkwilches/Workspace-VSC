@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  font-size: 3rem;
+  &:hover {
+    background: red;
+    color: white;
+  }
+
+  &:active {
+    background: black;
+  }
+
+  &:visited {
+    color: green;
+  }
+}
+
+.articulos {
+  &:hover {
+    background: #414141;
+    color: white;
+  }
+}
+
+.cajas {
+  div {
+    background: lightcyan;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    &:first-child {
+      background: red;
+    }
+    &:nth-child(2) {
+      background: lightblue;
+    }
+    &:nth-last-child(2) {
+      background: pink;
+    }
+    &:last-child {
+      background: lightgreen;
+    }
+  }
+}
