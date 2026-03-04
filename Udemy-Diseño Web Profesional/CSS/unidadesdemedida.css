@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+}
+
+html{
+  font-size: 32px;
+}
+.caja {
+  width: 50vw;
+  height: 50vh;
+  background: rgb(114, 38, 114);
+  font-size: 16px;
+}
+
+.parrafo-uno{
+  background: violet;
+  width: 50%;
+  height: 70%;
+  font-size: 1em;
+}
+
+.parrafo-dos{
+font-size: 1rem;
+}

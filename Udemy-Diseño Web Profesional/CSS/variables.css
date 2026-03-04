@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+}
+
+:root{
+  --main-color: rgb(199, 139, 9);
+  --secondary-color: rgb(9, 99, 199);
+  --fuente-principal: 'Arial', sans-serif;
+  --fuente-secundaria: 'Courier New', monospace;
+}
+
+h1{
+  color: var(--main-color);
+  font-family: var(--fuente-secundaria);
+}
+
+header nav a{
+  color: var(--main-color);
+  font-family: var(--fuente-principal);
+  
+}
+
+main a {
+  color: var(--main-color);
+}
