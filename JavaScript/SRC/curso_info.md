@@ -4,5 +4,4 @@
 
 **Curso:** [Curso de JavaScript Orientado a Objetos]
 
-**Capítulo Actual:** [Configuración del entorno para JavaScript]
-
+**Capítulo Actual:** [Var, let y const: qué cambia en JavaScript]
